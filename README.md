@@ -12,6 +12,16 @@ python3 -m http.server 8642
 
 Then go to http://localhost:8642.
 
+## Install it (PWA)
+
+Bug Hunt is an installable Progressive Web App. Served over http(s), it registers a service worker that caches the whole game, so it runs offline after the first visit.
+
+- Desktop Chrome/Edge: click the install icon in the address bar.
+- iPhone/iPad (Safari): Share → Add to Home Screen.
+- Android (Chrome): menu → Install app.
+
+Installing needs HTTPS (or `localhost`); opening `index.html` straight from disk still plays, just without install or offline support. The service worker fetches fresh files whenever you're online and falls back to the cache offline. If you add a new file, list it in `CORE` in `sw.js` and bump `CACHE`.
+
 ## Controls
 
 | Input | Action |
@@ -50,5 +60,6 @@ Pickups: Medkit, Sample Recall (pulls in every sample on the map), Demo Charge (
 - `js/audio.js`: synthesized WebAudio sound effects, including the bitcrushed motion tracker ping.
 - `js/render.js`: procedural floor tiles, lighting sprites, and all character art (no image assets).
 - `js/game.js`: game loop, spawning director, AI, weapons, collisions, HUD, menus.
+- `sw.js`, `manifest.webmanifest`, `icons/`: PWA install and offline support.
 
 Add `?debug` to the URL for test keys: `]` skips 60s, `L` grants a level, `K` kills everything, `G` gives god mode.
