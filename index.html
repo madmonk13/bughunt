@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Bug Hunt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="scanlines"></div>
+<div id="banner"></div>
+<div id="corner">
+  <button id="muteBtn" title="Mute (M)">♪</button>
+  <button id="pauseBtn" title="Pause (P / Esc)">II</button>
+</div>
+
+<section id="title" class="screen">
+  <div class="panel">
+    <div class="eyebrow">3RD RECON PLATOON · OUTPOST KESTREL-9</div>
+    <h1 class="logo">BUG<span>HUNT</span></h1>
+    <p class="brief">Contact with the colony was lost 19 days ago. Your squad is down to one marine.
+      Survive the infestation, burn out the egg chambers, and put down whatever is laying them.
+      Weapons fire on their own — <b>you just move</b>.</p>
+    <h3>SELECT YOUR MARINE</h3>
+    <div id="squad" class="cards"></div>
+    <div class="controls">WASD / ARROWS or DRAG to move · P pause · M mute · 1–4 quick select</div>
+    <div id="best"></div>
+  </div>
+</section>
+
+<section id="levelup" class="screen hidden">
+  <div class="panel">
+    <h2 id="lvTitle">PROMOTION</h2>
+    <div id="lvSub" class="sub"></div>
+    <div id="choices" class="cards"></div>
+  </div>
+</section>
+
+<section id="pause" class="screen hidden">
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <div id="pauseLoadout" class="chips"></div>
+    <div class="row">
+      <button id="resumeBtn" class="btn">RESUME</button>
+      <button id="quitBtn" class="btn ghost">ABORT MISSION</button>
+    </div>
+  </div>
+</section>
+
+<section id="over" class="screen hidden">
+  <div class="panel">
+    <h2 id="overTitle">SIGNAL LOST</h2>
+    <div id="overSub" class="sub"></div>
+    <div id="overStats" class="stats"></div>
+    <div id="overLoadout" class="chips"></div>
+    <div class="row">
+      <button id="againBtn" class="btn">REDEPLOY</button>
+      <button id="menuBtn" class="btn ghost">SQUAD SELECT</button>
+    </div>
+  </div>
+</section>
+
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/render.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
